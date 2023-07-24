@@ -64,9 +64,6 @@ This project implements a customized Artist API using Django REST Framework. The
 | `DELETE /api/artists/<int:pk>/` | Update a specific artist.                                    |
 | `POST /api/register/`           | Register a new user account and get an authentication token. |
 
-#### add(num1, num2)
-
-Takes two numbers and returns the sum.
 
 ## Dummy Data
 
