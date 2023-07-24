@@ -19,7 +19,7 @@ This project implements a customized Artist API using Django REST Framework. The
 2. Change the Project Directory to ArtistAPI
 
 ```bash
-cd NSNO
+    cd NSNO
 ```
 
 3. Apply the database migrations:
