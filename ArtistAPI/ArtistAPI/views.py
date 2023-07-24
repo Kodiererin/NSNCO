@@ -13,3 +13,9 @@ class ArtistListCreateView(generics.ListCreateAPIView):
     serializer_class = ArtistSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
+
+class CustomAuthToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        response = super(CustomAuthToken, self).post(request, *args, **kwargs)
+        token = Token.objects.get(key=response.data['token'])
+        return Response({'token': token.key, 'user_id': token.user_id})
