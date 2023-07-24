@@ -19,8 +19,9 @@ from .views import CustomAuthToken
 from .views import WorkListCreateView, ArtistListCreateView
 
 urlpatterns = [
+     path('admin/', admin.site.urls),
     path('api/works/', WorkListCreateView.as_view(), name='work-list-create'),
     path('api/artists/', ArtistListCreateView.as_view(), name='artist-list-create'),
     path('api/register/', CustomAuthToken.as_view(), name='user-register'),
 ]
-]
+

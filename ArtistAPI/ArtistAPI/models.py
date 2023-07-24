@@ -22,7 +22,14 @@ from django.dispatch import receiver
 @receiver(post_save, sender=User)
 def create_artist(sender, instance, created, **kwargs):
     if created:
-        Artist.objects.create(user=instance, name=instance.username)
+        artist = Artist.objects.create(user=instance, name=instance.username)
+
+        # Add some dummy works for the artist
+        Work.objects.create(link='https://www.youtube.com/artist1', work_type='YT')
+        Work.objects.create(link='https://www.instagram.com/artist1', work_type='IG')
+        Work.objects.create(link='https://www.example.com/artist1', work_type='OT')
+
+        artist.works.add(*Work.objects.all())
 
 @receiver(post_save, sender=User)
 def save_artist(sender, instance, **kwargs):
